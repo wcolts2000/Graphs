@@ -136,7 +136,36 @@ class Graph:
         starting_vertex to destination_vertex in
         depth-first order.
         """
-        pass  # TODO
+        stack = Stack()
+        if type(starting_vertex) == int:
+            starting_vertex = [starting_vertex]
+        stack.push(starting_vertex)
+        print(f"starting vertex {starting_vertex}")
+        # Create a Set to store visited vertices
+        visited = set()
+        # While the queue is not empty...
+        while stack.size() > 0:
+            # Dequeue the first PATH
+            v = stack.pop()
+            # Grab the last vertex from the PATH
+            potential_target = v[-1]
+            print(f"potential target {potential_target}, visited: {visited}, destination: {destination_vertex}")
+            # If that vertex has not been visited...
+            if potential_target not in visited:
+                # CHECK IF IT'S THE TARGET
+                if potential_target == destination_vertex:
+                    print(f"found vertex via {visited}")
+                    # IF SO, RETURN PATH
+                    return v
+                # Mark it as visited...
+                visited.add(potential_target)
+                # Then add A PATH TO its neighbors to the back of the queue
+                for neighbor in self.vertices[potential_target]:
+                    # COPY THE PATH
+                    new_path = v[:]
+                    new_path.append(neighbor)
+                    # APPEND THE NEIGHBOR TO THE BACK
+                    stack.push(new_path)
     
 
 
