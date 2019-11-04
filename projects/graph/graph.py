@@ -103,7 +103,7 @@ class Graph:
         if type(starting_vertex) == int:
             starting_vertex = [starting_vertex]
         queue.enqueue(starting_vertex)
-        print(f"starting vertex {starting_vertex}")
+        # print(f"starting vertex {starting_vertex}")
         # Create a Set to store visited vertices
         visited = set()
         # While the queue is not empty...
@@ -112,7 +112,7 @@ class Graph:
             v = queue.dequeue()
             # Grab the last vertex from the PATH
             potential_target = v[-1]
-            print(f"potential target {potential_target}, visited: {visited}, destination: {destination_vertex}")
+            # print(f"potential target {potential_target}, visited: {visited}, destination: {destination_vertex}")
             # If that vertex has not been visited...
             if potential_target not in visited:
                 # CHECK IF IT'S THE TARGET
@@ -140,7 +140,7 @@ class Graph:
         if type(starting_vertex) == int:
             starting_vertex = [starting_vertex]
         stack.push(starting_vertex)
-        print(f"starting vertex {starting_vertex}")
+        # print(f"starting vertex {starting_vertex}")
         # Create a Set to store visited vertices
         visited = set()
         # While the queue is not empty...
@@ -149,7 +149,7 @@ class Graph:
             v = stack.pop()
             # Grab the last vertex from the PATH
             potential_target = v[-1]
-            print(f"potential target {potential_target}, visited: {visited}, destination: {destination_vertex}")
+            # print(f"potential target {potential_target}, visited: {visited}, destination: {destination_vertex}")
             # If that vertex has not been visited...
             if potential_target not in visited:
                 # CHECK IF IT'S THE TARGET
