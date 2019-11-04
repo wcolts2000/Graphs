@@ -117,7 +117,7 @@ class Graph:
             if potential_target not in visited:
                 # CHECK IF IT'S THE TARGET
                 if potential_target == destination_vertex:
-                    print(f"found vertex via {visited}")
+                    # print(f"found vertex via {visited}")
                     # IF SO, RETURN PATH
                     return v
                 # Mark it as visited...
@@ -154,7 +154,7 @@ class Graph:
             if potential_target not in visited:
                 # CHECK IF IT'S THE TARGET
                 if potential_target == destination_vertex:
-                    print(f"found vertex via {visited}")
+                    # print(f"found vertex via {visited}")
                     # IF SO, RETURN PATH
                     return v
                 # Mark it as visited...
