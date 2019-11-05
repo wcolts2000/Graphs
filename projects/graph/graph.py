@@ -129,6 +129,8 @@ class Graph:
                     new_path.append(neighbor)
                     # APPEND THE NEIGHBOR TO THE BACK
                     queue.enqueue(new_path)
+
+        return False
                     
     def dfs(self, starting_vertex, destination_vertex):
         """
@@ -166,6 +168,7 @@ class Graph:
                     new_path.append(neighbor)
                     # APPEND THE NEIGHBOR TO THE BACK
                     stack.push(new_path)
+        return False
     
 
 
