@@ -77,7 +77,6 @@ class Graph {
   bfs(startingVertex, destinationVertex) {
     // Create an empty queue and enqueue A PATH TO the starting vertex ID
   const queue = new helpers.Queue()
-  // const found = []
 
   if (typeof destinationVertex !== 'object') {
     startingVertex = [startingVertex]
@@ -97,8 +96,6 @@ class Graph {
       if(lastVertex === destinationVertex) {
         console.log(`found vertex via ${JSON.stringify(v)}`)
         // IF SO, RETURN PATH
-        
-        // found.push(v)
         return v
       }
       // Mark it as visited...
@@ -114,18 +111,12 @@ class Graph {
     }
   }
   return false
-  
-  // if not found, return False
-  // console.log("FOUND", JSON.stringify(found))
-  // if (found.length > 0) return found
-
   }
 
 
   dfs(startingVertex, destinationVertex) {
     // Create an empty queue and enqueue A PATH TO the starting vertex ID
   const stack = new helpers.Stack()
-  // const found = []
 
   if (typeof destinationVertex !== 'object') {
     startingVertex = [startingVertex]
@@ -141,13 +132,10 @@ class Graph {
     const lastVertex = v[v.length - 1]
     // If that vertex has not been visited...
     if (!visited.has(lastVertex)) {
-    // if (!visited.has(`${lastVertex}`)) {
       // CHECK IF IT'S THE TARGET
       if(lastVertex === destinationVertex) {
         console.log(`found vertex via ${JSON.stringify(v)}`)
         // IF SO, RETURN PATH
-        
-        // found.push(v)
         return v
       }
       // Mark it as visited...
@@ -163,11 +151,6 @@ class Graph {
     }
   }
   return false
-  
-  // if not found, return False
-  // console.log("FOUND", JSON.stringify(found))
-  // if (found.length > 0) return found
-
   }
 
 }
