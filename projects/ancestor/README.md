@@ -1,6 +1,6 @@
 # Earliest Ancestor
 
-This is a take-home coding challenge from a top tech company. The spec is providied verbatim.
+This is a take-home coding challenge from a top tech company. The spec is provided verbatim.
 
 
 ## Problem
@@ -25,19 +25,31 @@ Write a function that, given the dataset and the ID of an individual in the data
 Example input
   6
 
-  1 3
-  2 3
-  3 6
-  5 6
-  5 7
-  4 5
-  4 8
-  8 9
-  11 8
-  10 1
+  1 :  3
+  2 :  3
+  3 :  6
+  5 :  6
+  5 :  7
+  4 :  5
+  4 :  8
+  8 :  9
+  11 : 8
+  10 : 1
 Example output
   10
 ```
+parent
+    3 -> 1 -> 10
+      -> 2 
+   
+    5 -> 4
+
+children
+    5 -> 6
+      -> 7 
+    3 -> 6
+
+
 
 Clarifications:
 * The input will not be empty.
