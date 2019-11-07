@@ -110,8 +110,9 @@ class SocialGraph:
                     newFriendConnections = friendshipConnections[:]
                     newFriendConnections.append(friend)
                     queue.enqueue(newFriendConnections)
-                    if len(queue.queue) > longestChain:
-                        longestChain = len(queue.queue)
+                    # if len(queue.queue) > longestChain:
+                    if queue.size() > longestChain:
+                        longestChain = queue.size()
         print(f"FRIENDSHIP CONNECTIONS FOR {self.users[userID]}:")
         print("longest chain was", longestChain)
         return visited
