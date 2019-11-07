@@ -105,14 +105,14 @@ class SocialGraph:
             current_node = friendshipConnections[-1]
             if current_node not in visited:
                 visited[current_node] = friendshipConnections
-            for friend in self.friendships[current_node]:
-                if friend not in friendshipConnections:
-                    newFriendConnections = friendshipConnections[:]
-                    newFriendConnections.append(friend)
-                    queue.enqueue(newFriendConnections)
-                    # if len(queue.queue) > longestChain:
-                    if queue.size() > longestChain:
-                        longestChain = queue.size()
+                for friend in self.friendships[current_node]:
+                    if friend not in friendshipConnections:
+                        newFriendConnections = friendshipConnections[:]
+                        newFriendConnections.append(friend)
+                        queue.enqueue(newFriendConnections)
+                        # if len(queue.queue) > longestChain:
+                        if queue.size() > longestChain:
+                            longestChain = queue.size()
         print(f"FRIENDSHIP CONNECTIONS FOR {self.users[userID]}:")
         print("longest chain was", longestChain)
         return visited
@@ -120,7 +120,7 @@ import time
 
 if __name__ == '__main__':
     sg = SocialGraph()
-    sg.populateGraph(10, 2)
+    sg.populateGraph(18, 5)
     print("USERS:")
     print(sg.users)
     print("FRIENDSHIPS:")

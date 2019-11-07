@@ -104,20 +104,20 @@ class SocialGraph {
               
               if (visited[currentNode] === undefined) {
                 visited[currentNode] = friendshipConnections
+                
+                console.log(this.friendships[currentNode])
+                for (const friend of this.friendships[currentNode]) {
+                  if (!friendshipConnections.includes(friend)) {
+                    let newFriendConnections = [...friendshipConnections]
+                    newFriendConnections.push(friend)
+                    queue.enqueue(newFriendConnections)
+  
+                    if (queue.size() > longestChain) {
+                      longestChain = queue.size()
+                    }
+                  }
+                }          
               }
-              
-              console.log(this.friendships[currentNode])
-              for (const friend of this.friendships[currentNode]) {
-            if (!friendshipConnections.includes(friend)) {
-              let newFriendConnections = [...friendshipConnections]
-              newFriendConnections.push(friend)
-              queue.enqueue(newFriendConnections)
-
-              if (queue.size() > longestChain) {
-                longestChain = queue.size()
-              }
-            }
-          }          
         }
         console.log(`Friendship connections for ${this.users[userId]}:`)
         console.log(visited)
