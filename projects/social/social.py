@@ -7,8 +7,10 @@ class Queue():
         self.queue.append(value)
     def dequeue(self):
         if self.size() > 0:
+            print(f"popping {self.queue[0]}, size: {len(self.queue)}")
             return self.queue.pop(0)
         else:
+            print("nothing here")
             return None
     def size(self):
         return len(self.queue)
@@ -91,6 +93,7 @@ class SocialGraph:
         """
         visited = {}  # Note that this is a dictionary, not a set
         # !!!! IMPLEMENT ME
+        longestChain = 0
         queue = Queue()
         queue.enqueue([userID])
         # a place to store the return answer
@@ -107,10 +110,12 @@ class SocialGraph:
                     newFriendConnections = friendshipConnections[:]
                     newFriendConnections.append(friend)
                     queue.enqueue(newFriendConnections)
+                    if len(queue.queue) > longestChain:
+                        longestChain = len(queue.queue)
         print(f"FRIENDSHIP CONNECTIONS FOR {self.users[userID]}:")
-        # print(visited)
+        print("longest chain was", longestChain)
         return visited
-
+import time
 
 if __name__ == '__main__':
     sg = SocialGraph()
@@ -119,5 +124,8 @@ if __name__ == '__main__':
     print(sg.users)
     print("FRIENDSHIPS:")
     print(sg.friendships)
+    start_time = time.time()
     connections = sg.getAllSocialPaths(1)
+    end_time = time.time()
+    print(f"getting connections took {end_time - start_time} seconds") 
     print(connections)
