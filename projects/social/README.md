@@ -28,7 +28,7 @@ Note that in the above example, the average number of friendships is exactly 2 b
 
 ## 2. Degrees of Separation
 
-Now that you have a graph full of users and friendships, you can crawl through their social graphs. `getAllSocialPaths()` takes a userID and returns a dictionary containing every user in that user's extended network along with the shortest friendship path between each.
+Now that you have a graph full of users and friendships, you can crawl through their social graphs. `getAllSocialPaths()` takes a userID and returns a dictionary containing every user in that user's extended network along with the `shortest` friendship path between each.
 
 ```
 >>> sg = SocialGraph()
@@ -41,12 +41,12 @@ Now that you have a graph full of users and friendships, you can crawl through t
 ```
 Note that in this sample, Users 3, 4 and 9 are not in User 1's extended social network.
 
-* Hint 1: What kind of graph search guarantees you a shortest path?
-* Hint 2: Instead of using a `set` to mark users as visited, you could use a `dictionary`. Similar to sets, checking if something is in a dictionary runs in O(1) time. If the visited user is the key, what would the value be?
+* Hint 1: What kind of graph search guarantees you a shortest path? BFS
+* Hint 2: Instead of using a `set` to mark users as visited, you could use a `dictionary`. Similar to sets, checking if something is in a dictionary runs in O(1) time. If the visited user is the key, what would the value be? a list of the shortest path to that user from the bfs
 
 ## 3. Questions
 
-1. To create 100 users with an average of 10 friends each, how many times would you need to call `addFriendship()`? Why?
+1. To create 100 users with an average of 10 friends each, how many times would you need to call `addFriendship()`? 500 times... Why? because the friendships are a 2 way connection, each add creates 2 connections...the formula being in the code totalFriendships = avgFriendships * numUsers // 2 (flooring the division) 
 
 2. If you create 1000 users with an average of 5 random friends each, what percentage of other users will be in a particular user's extended social network? What is the average degree of separation between a user and those in his/her extended network?
 
